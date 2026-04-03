@@ -58,23 +58,23 @@ int main()
     // --------------------------------------------------
     printSection("2. Adding Songs (at least 8)");
 
-    // TODO: Add at least 8 songs of your choice using library.add().
-    //
-    // IMPORTANT — choose your insertion order carefully:
-    //   - The order you call add() determines the shape of the BST.
-    //   - Inserting in alphabetical order produces a degenerate (linear) tree.
-    //   - Insert in a deliberate order so the tree stays balanced.
-    //   - Aim for a tree where isBalanced() returns true (see section 3 below).
-    //
-    // ALSO — make sure your 8+ songs include:
-    //   - At least one LEAF node (for removal test in section 9)
-    //   - At least one node with exactly ONE CHILD (section 10)
-    //   - At least one node with TWO CHILDREN (section 11)
-    //   Sketch the tree on paper before coding the removal sections.
-    //
-    // Example:
-    //   library.add(Song("Midnights",      "Taylor Swift", 2022));
-    //   library.add(Song("Blinding Lights", "The Weeknd",  2019));
+// 1. ROOT NODE
+    library.add(Song("Hotline Bling", "Drake", 2015));
+
+// 2. LEFT AND RIGHT CHILDREN OF ROOT
+    library.add(Song("En Su Nota", "Omar Courtz", 2021)); 
+    library.add(Song("One Dance", "Drake", 2016));
+
+// 3. FILLING OUT THE LEFT SUBTREE
+    library.add(Song("Baby Schizo", "Omar Courtz", 2023));
+    library.add(Song("God's Plan", "Drake", 2018));
+
+// 4. FILLING OUT THE RIGHT SUBTREE
+    library.add(Song("LUCES DE COLORES", "Omar Courtz", 2023));
+    library.add(Song("Sticky", "Drake", 2022));
+
+// 5. THE FINAL NODE (Creates a 1-child scenario)
+    library.add(Song("UNA NOTI", "Omar Courtz", 2023));
 
     cout << "Songs added." << endl;
     cout << "getNumberOfNodes(): " << library.getNumberOfNodes() << endl;
@@ -107,7 +107,7 @@ int main()
     // --------------------------------------------------
     printSection("7. Search — Song That Exists");
     // TODO: Replace "YOUR_SONG_TITLE" with a title you added above.
-    Song existingSong("YOUR_SONG_TITLE", "", 0);
+    Song existingSong("One Dance", "", 0);
     cout << "Searching for \"" << existingSong.getTitle() << "\"..." << endl;
     cout << "contains(): " << (library.contains(existingSong) ? "true" : "false") << endl;
 
@@ -116,7 +116,7 @@ int main()
     // --------------------------------------------------
     printSection("8. Search — Song That Does Not Exist");
     // TODO: Use a title that is NOT in your library.
-    Song missingSong("NOT_IN_LIBRARY", "", 0);
+    Song missingSong("Never Gonna Give You up", "Rick Astley", 1987);
     cout << "Searching for \"" << missingSong.getTitle() << "\"..." << endl;
     cout << "contains(): " << (library.contains(missingSong) ? "true" : "false") << endl;
 
@@ -127,7 +127,7 @@ int main()
     // TODO: Replace "YOUR_SONG_TITLE" with a title you added above.
     try
     {
-        Song query("YOUR_SONG_TITLE", "", 0);
+        Song query("Hotline Bling", "", 0);
         Song found = library.getEntry(query);
         cout << "getEntry() found: " << found << endl;
     }
@@ -143,7 +143,7 @@ int main()
     // TODO: Use a title that is NOT in your library.
     try
     {
-        Song badQuery("NOT_IN_LIBRARY", "", 0);
+        Song badQuery("me jodi...", "Tainy & Arcangel", 2023);
         Song found = library.getEntry(badQuery);
         cout << "getEntry() found: " << found << endl;  // should not reach here
     }
@@ -158,7 +158,7 @@ int main()
     printSection("11. Remove — Leaf Node");
     // TODO: Replace "LEAF_TITLE" with a title that is a LEAF in your BST.
     //       Verify by checking your paper sketch.
-    Song leafSong("LEAF_TITLE", "", 0);
+    Song leafSong("God's Plan", "",0);
     cout << "Removing \"" << leafSong.getTitle() << "\" (leaf)..." << endl;
     cout << "remove() returned: " << (library.remove(leafSong) ? "true" : "false") << endl;
     cout << "contains() after:  " << (library.contains(leafSong) ? "true" : "false") << endl;
@@ -171,7 +171,7 @@ int main()
     // --------------------------------------------------
     printSection("12. Remove — Node With One Child");
     // TODO: Replace "ONE_CHILD_TITLE" with a title whose node has exactly one child.
-    Song oneChildSong("ONE_CHILD_TITLE", "", 0);
+    Song oneChildSong("Sticky", "", 0);
     cout << "Removing \"" << oneChildSong.getTitle() << "\" (one child)..." << endl;
     cout << "remove() returned: " << (library.remove(oneChildSong) ? "true" : "false") << endl;
     cout << "contains() after:  " << (library.contains(oneChildSong) ? "true" : "false") << endl;
@@ -185,7 +185,7 @@ int main()
     printSection("13. Remove — Node With Two Children");
     // TODO: Replace "TWO_CHILDREN_TITLE" with a title whose node has two children.
     //       The inorder successor should replace it — verify in your output.
-    Song twoChildSong("TWO_CHILDREN_TITLE", "", 0);
+    Song twoChildSong("En Su Nota", "", 0);
     cout << "Removing \"" << twoChildSong.getTitle() << "\" (two children)..." << endl;
     cout << "remove() returned: " << (library.remove(twoChildSong) ? "true" : "false") << endl;
     cout << "contains() after:  " << (library.contains(twoChildSong) ? "true" : "false") << endl;

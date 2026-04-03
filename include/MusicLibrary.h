@@ -35,7 +35,7 @@ public:
     bool contains(const Song& aSong) const override;
 
     // --- Traversals ---
-    void preorder Traverse(void visit(Song&)) const override;
+    void preorderTraverse(void visit(Song&)) const override;
     void inorderTraverse(void visit(Song&)) const override;
     void postorderTraverse(void visit(Song&)) const override;
 };

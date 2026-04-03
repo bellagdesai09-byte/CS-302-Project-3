@@ -26,19 +26,19 @@ int Song::getYear() const {
     return this->year;
 }
 //=========Setters==========
-void Song::setTitle(string newTitle){
-    this->title = newTitle;
+void Song::setTitle(const string& newTitle){
+    title = newTitle;
 }
 
-void Song::setArtist(string newArtist){
-    this->artist = newArtist;
+void Song::setArtist(const string& newArtist){
+    artist = newArtist;
 }
 void Song::setYear(int newYear){
-    this->year = newYear;
+    year = newYear;
 }
-void Song::display() const {
+void Song::display(ostream& out) const {
 // Formats the output so the traversals print cleanly in the terminal
-    cout << this->title << " by " << this-> << "(" << this->year << ")" <<endl;
+    out << title << " by " << artist << "(" << year << ")" <<endl;
 }
 
 // --- Comparable<Song> Implementations ---

@@ -24,11 +24,11 @@ public:
     string getArtist() const;
     int getYear() const;
 
-    void setTitle(string newTitle);
-    void setArtist(string newArtist);
+    void setTitle(const string& newTitle) override;
+    void setArtist(const string& newArtist) override;
     void setYear(int newYear);
 
-    void display() const override;
+    void display(ostream& out) const override;
 
     bool operator<(const Song& other) const override;
     bool operator==(const Song& other) const override;
